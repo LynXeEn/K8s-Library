@@ -12,7 +12,6 @@ public class Book {
     @Id
     private String id;
 
-    //Title
     private String title;
     private String isbn;
     private int publishedYear;
