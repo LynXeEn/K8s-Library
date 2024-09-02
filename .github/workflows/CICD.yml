@@ -42,7 +42,9 @@ jobs:
         with:
           context: ./Books
           push: false
-          tags: lynxeen/library_docker_k8s:${{ env.VERSION }}
+          tags: |
+            lynxeen/k8s_library:${{ env.VERSION }}
+            lynxeen/k8s_library:latest
 
       - name: Push Docker image
         if: steps.build.outcome == 'success'
@@ -50,7 +52,9 @@ jobs:
         with:
           context: ./Books
           push: true
-          tags: lynxeen/library_docker_k8s:${{ env.VERSION }}
+          tags: |
+            lynxeen/k8s_library:${{ env.VERSION }}
+            lynxeen/k8s_library:latest
 
       - name: Notify Build Status
         run: echo "Build and push successful!"
