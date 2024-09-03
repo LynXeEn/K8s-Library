@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
+@RequestMapping({"/", "/authors"})
 public class AuthorController {
 
     private final AuthorService authorService;
@@ -17,7 +18,8 @@ public class AuthorController {
         this.authorService = authorService;
     }
 
-    @GetMapping({"/", "/authors"})
+//    @GetMapping({"/", "/authors"})
+    @GetMapping
     public String getAllAuthors(Model model) {
         List<Author> authors = authorService.getAllAuthors();
         model.addAttribute("authors", authors);
